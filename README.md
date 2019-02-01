@@ -459,21 +459,21 @@
   
 ## Create Routing
 
-  - **Making New Route**: When make new feature in `packages` folder always making route for that feature always make new       `Stack`.
+  - **Making New Route**: When make new feature in `packages` folder always making route for that feature always make new       `Stack`.Suppose we need to add offers stack.
   
        ```jsx
        
-       const newStack = createStackNavigator({
-          Page1: {
-              screen: Page1Container,
-              path: '/Page1',
+       const offersStack = createStackNavigator({
+          Offers: {
+              screen: OffersConatiner,
+              path: '/offers-container',
               navigationOptions: ({ navigation }) => ({
                 ...navigation,
               })
            },
-          Page2: {
-              screen: Page2Container,
-              path: '/Page2',
+          OffersDetails: {
+              screen: OffersDetailsContainer,
+              path: '/offer-detail-container',
               navigationOptions: ({ navigation }) => ({
                  ...navigation,
               })
@@ -485,22 +485,22 @@
        const AppStack = createStackNavigator({
         // other stacks
         
-        newFeature: newStack,
+        Offers: offersStack,
        }, {
         headerMode: 'none',
         })
        ```
 ## Creating Redux
   
-  - **Making new feature in packages**: While making new feature in `packages` folder and need to create redux for that         feature always make new `duck` folder for new feature and create all files of redux                                         (`index.js`,`actions.js`,`selectors.js`,`types.js`,`reducers.js`). Then combine reducer to other reducer in `root-store`      > `reducers.js` file.
+  - **Making new feature in packages**: While making new feature in `packages` folder and need to create redux for that         feature always make new `duck` folder for new feature and create all files of redux                                         (`index.js`,`actions.js`,`selectors.js`,`types.js`,`reducers.js`). Then combine reducer to other reducer in `root-store`      > `reducers.js` file [See this](https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7) and [this](https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be). Suppose we add offers.
        
        ```jsx
        // All Reducers
-       import newReducer from "../packages/newFeature/duck/reducers"; 
+       import offersReducer from "../packages/offers/duck/reducers"; 
         
        const rootReducer = combineReducers({
           // other reducers
-          newFeature: newReducer
+          offers: offersReducer
        }); 
        
        export default rootReducer;
@@ -529,7 +529,7 @@
             <div>
                 <div>
                     <LoginForm
-                        onLogin={this.onLoginPress}
+                        onSubmit={this.onLoginPress}
                     />
                 </div>
             </div>
