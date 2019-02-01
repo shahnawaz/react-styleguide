@@ -18,8 +18,7 @@ in our project, although some conventions (i.e async/await, naming files)
 1. [Parentheses](#parentheses)
 1. [Callback Handlers](#callback-handlers)
 1. [Methods](#methods)
-1. [Common Components](#common-components)
-1. [Helpers](#helpers)
+1. [Common](#common)
 1. [Create Routing](#create-routing)
 1. [Creating Redux](#creating-redux)
 1. [Seperate Form Comoponents](#seperate-form-components)
@@ -454,5 +453,11 @@ in our project, although some conventions (i.e async/await, naming files)
        openModal = () => {
        }
        
+## Common
+  - Make all common components (`modals`,`dropdowns`,`drawer`) which can be use in more than one component in `common` >           `components` folder.
+  
+  - Place all the images in `common` > `assets` and require image in `images.js` file in variable and which can be used in       any components.
+  
+  - Make all helpers functions in `common` > `utils` > `helpers.js` which can be used in more than one component.
   
   
