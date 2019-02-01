@@ -328,4 +328,84 @@ in our project, although some conventions (i.e async/await, naming files)
            key={todo.id}
          />
         ))}
-        ```
+       ```
+
+## Callback Handlers
+
+
+  - **setState Callback**: Don't use setState callback as much as you can.
+      > Why? setState callback fires after the rerender (just after componentDidUpdate) and shouldn't fire if the component         unmounts first.
+      
+  - **Defining Callbacks**: Don't call handler functions in callbacks of DOM functions (`onClick`, `onPress`) make your              handler your as callback function.
+  
+       ```jsx
+       // bad       
+       handlePress = () = {
+        // handle press
+       }
+       
+       <button onClick={()=> this.handlePress() }> Press Me </button>
+      
+       // good
+       handlePress = () = {
+        // handle press
+       }
+       
+       <button onClick={this.handlePress}> Press Me </button>
+
+## Methods
+
+  - **Declearing Funcions**: Always decleare function handler with arrow pattern (`() => {}`)
+      > Why? declearing a function without arrow pattern did'nt get the `this` scope then it should bind with `this` in             constructor 
+    
+       ```jsx
+       // bad 
+       class LoginContainer extends React.Component {
+         constructor(props) {
+         super(props);
+        
+         this.onLoginPress = this.onLoginPress.bind(this)
+         }
+        
+         onLoginPress(){
+           // login code
+         }
+       }
+      
+       // good
+       class LoginContainer extends React.Component {
+         constructor(props) {
+           super(props);
+         }
+        
+       onLoginPress = () => {
+        // login code
+       }
+       }
+       ```
+
+  - **Decleare Methods Name**: Always declare methods name that it will represent its work
+       ```jsx
+       // bad
+       login = () => {
+        // login code
+       }
+       
+       change = () =>{
+       }
+       
+       modal = () => {
+       }
+       
+       // good
+       onLoginPress = () => {
+       }
+       
+       handleChange = () => {
+       }
+       
+       openModal = () => {
+       }
+       
+  
+  
