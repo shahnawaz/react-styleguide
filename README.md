@@ -541,5 +541,33 @@ in our project, although some conventions (i.e async/await, naming files)
                 )
           }
         }
-        ```
+       ```
   
+## Form Validators
+
+  - Always make `validators.js` seperate file in feature folder for validation of form don't validate form in component         and make common form validation in `common` > `utils` > `form-validators.js` which can be used in more than one form or     all form like `isValid` we have declare in `SARA` see the code.
+       
+       validators.js
+       ```jsx
+       // import from common > form-validators
+       import { isValidEmail, isValueExist } from "../../../common/utils/form-validators";
+
+
+       const loginFormValidator = (type, data) => {
+          let errors = { ...data.errors };
+          switch (type) {
+            case 'email':
+              errors[type] = !isValidEmail(data.loginData.email)
+              break;
+            case 'password':
+              errors[type] = !isValueExist(data.loginData.password)
+              break;
+            default:
+            }
+          return errors;
+          }
+
+        export {
+          loginFormValidator
+        }
+       ```
