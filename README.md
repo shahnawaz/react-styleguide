@@ -281,19 +281,19 @@ in our project, although some conventions (i.e async/await, naming files)
     
   - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the            `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-         a11y/blob/master/docs/rules/alt-text.md)
 
-        ```jsx
-        // bad
-        <img src="hello.jpg" />
+     ```jsx
+     // bad
+     <img src="hello.jpg" />
 
-        // good
-        <img src="hello.jpg" alt="Me waving hello" />
+     // good
+     <img src="hello.jpg" alt="Me waving hello" />
 
-        // good
-        <img src="hello.jpg" alt="" />
+     // good
+     <img src="hello.jpg" alt="" />
 
-        // good
-        <img src="hello.jpg" role="presentation" />
-        ```
+     // good
+     <img src="hello.jpg" role="presentation" />
+     ```
  
  
    - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`]         (https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
@@ -312,20 +312,20 @@ in our project, although some conventions (i.e async/await, naming files)
 
       We don’t recommend using indexes for keys if the order of items may change.
 
-        ```jsx
-          // bad
-          {todos.map((todo, index) =>
-            <Todo
-              {...todo}
-              key={index}
-             />
-          )}
+       ```jsx
+       // bad
+       {todos.map((todo, index) =>
+         <Todo
+           {...todo}
+           key={index}
+         />
+       )}
 
-          // good
-          {todos.map(todo => (
-            <Todo
-              {...todo}
-              key={todo.id}
-              />
-           ))}
-           ```
+       // good
+       {todos.map(todo => (
+         <Todo
+           {...todo}
+           key={todo.id}
+         />
+        ))}
+        ```
