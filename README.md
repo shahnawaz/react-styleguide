@@ -14,6 +14,8 @@ in our project, although some conventions (i.e async/await, naming files)
 1. [Spacing](#spacing)
 1. [Quotes](#quotes)
 1. [Props](#props)
+1. [Refs](#refs)
+1. [Parentheses](#parentheses)
 1. [Callback Handlers](#callback-handlers)
 1. [Methods](#methods)
 1. [Common Components](#common-components)
@@ -329,6 +331,51 @@ in our project, although some conventions (i.e async/await, naming files)
          />
         ))}
        ```
+
+## Refs
+
+  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+
+       ```jsx
+       // bad
+       <Foo
+       ref="myRef"
+       />
+
+       // good
+       <Foo
+       ref={(ref) => { this.myRef = ref; }}
+       />
+       ```
+
+## Parentheses
+
+  - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/jsx-wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md)
+
+       ```jsx
+       // bad
+       render() {
+       return <MyComponent variant="long body" foo="bar">
+               <MyChild />
+             </MyComponent>;
+    }
+
+       // good
+       render() {
+       return (
+        <MyComponent variant="long body" foo="bar">
+          <MyChild />
+        </MyComponent>
+       );
+       }
+
+       // good, when single line
+       render() {
+       const body = <div>hello</div>;
+       return <MyComponent>{body}</MyComponent>;
+       }
+       ```
+
 
 ## Callback Handlers
 
