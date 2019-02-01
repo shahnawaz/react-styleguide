@@ -1,9 +1,6 @@
-# Coding guidelines for project
+# Coding guidelines for SARA (JavaScript, React and React Native)
 
-*A mostly reasonable approach to `JAVASCRIPT` and `React` and rules and that follow in `SARA`*
-
-This style guide is mostly based on the standards that are currently prevalent in JavaScript and we have to follow 
-in our project, although some conventions (i.e async/await, naming files)
+*Some most reasonable approaches to `JAVASCRIPT` and `React` and rules which we are following in `SARA`*
 
 ## Table of Contents
 
@@ -28,9 +25,8 @@ in our project, although some conventions (i.e async/await, naming files)
 ## Basic Rules
 
   - Only include one React component per file.
-    - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) 
-    are allowed per file.
-  - Always use JSX syntax In `React.JS` and use JS syntax in `React Native` for files, were using `.js` extension in `React     Native` if you want to enabled `.jsx` extension in react native make `rn-cli.config.js` inside of the root of your           project and place this code [See this](https://stackoverflow.com/questions/50311473/how-to-allow-react-native-to-enable-support-for-jsx-extension-files/53016425#53016425)
+    - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file.
+  - Always use JSX syntax with `React` and use JS syntax with `React Native`. If you want to enabled `.jsx` extension in react native make `rn-cli.config.js` inside of the root of your project and place this code [See this](https://stackoverflow.com/questions/50311473/how-to-allow-react-native-to-enable-support-for-jsx-extension-files/53016425#53016425)
     ```
     module.exports = {
       /// @name Make ReactNative Great Again
@@ -280,7 +276,7 @@ in our project, although some conventions (i.e async/await, naming files)
     <Foo hidden />
     ```
     
-  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the            `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-         a11y/blob/master/docs/rules/alt-text.md)
+  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the            `<img>` must have `role="presentation"`. eslint: (`jsx-a11y/alt-text`)[https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md]
 
      ```jsx
      // bad
