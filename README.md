@@ -450,21 +450,22 @@
        }
        ```
        
-  - **Modal Toggle**: Always make seperate handlers for opening and closing Modal don't make one handler for open and close       modal.
+  - **Modal Toggle**: Always make seperate handlers for opening and closing Modal don't make one handler for open and close       modal. Make handlers name like `openBranchModal` and `closeBranchModal` name the handler name which type of modal           about to open or close pattern should be `open/close + (modal name) + Modal` and definite state boolean as                   `isBranchModalOpen` pattren should be `is + (modal name) + Modal + open`.
+  
        ```jsx
        // bad
-       toggleModal = () => {
-        this.setState({ isOpenModal: !this.state.isOpenModal })
+       toggleBranchModal = () => {
+        this.setState({ isBranchModalOpen: !this.state.isBranchModalOpen })
        }
        
        // good
-       openModal () => {
-        this.setState({ isOpenModal: true })
+       openBranchModal () => {
+        this.setState({ isBranchModalOpen: true })
        }
        
        
-       closeModal () => {
-        this.setState({ isOpenModal: false })
+       closeBranchModal () => {
+        this.setState({ isBranchModalOpen: false })
        }
        ```
   
@@ -543,7 +544,7 @@
        export default rootReducer;
        ``` 
     
-## Seperate Form Comoponents
+## Seperate Form Components
   
   - Always make seperate form component.
        
