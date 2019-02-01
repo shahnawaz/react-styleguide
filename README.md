@@ -511,3 +511,35 @@ in our project, although some conventions (i.e async/await, naming files)
        export default rootReducer;
        ``` 
     
+## Seperate Form Comoponents
+  
+  - Always make seperate form component in all components in which form are used and make all form validation work in form       component and pass the data to parent component parent component is responsible to utilizing the data and form component     is responsilble for get data from user and validate the data and pass data to parent component.
+       
+       ```jsx
+       import LoginForm from "./login-form";
+       
+       class LoginContainer extends React.Component {
+          constructor(props) {
+          super(props);
+        }
+
+
+        onLoginPress = async (data) => {
+        // login with data
+        };
+
+        render() {
+
+        return (
+            <div>
+                <div>
+                    <LoginForm
+                        onLogin={this.onLoginPress}
+                    />
+                </div>
+            </div>
+                )
+          }
+        }
+        ```
+  
