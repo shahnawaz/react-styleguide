@@ -450,6 +450,25 @@
        }
        ```
        
+  - **Modal Toggle**: Always make seperate handlers for opening and closing Modal don't make one handler for open and close       modal.
+       ```jsx
+       // bad
+       toggleModal = () => {
+        this.setState({ isOpenModal: !this.state.isOpenModal })
+       }
+       
+       // good
+       openModal () => {
+        this.setState({ isOpenModal: true })
+       }
+       
+       
+       closeModal () => {
+        this.setState({ isOpenModal: false })
+       }
+       ```
+  
+         
 ## Common
   - Keep all common components (`modals`,`dropdowns`,`drawer`) in `common` > `components` folder (which can be use in more than one component).
   
