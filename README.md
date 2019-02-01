@@ -494,5 +494,20 @@ in our project, although some conventions (i.e async/await, naming files)
        }, {
         headerMode: 'none',
         })
+       ```
+## Creating Redux
+  
+  - **Making new feature in packages**: While making new feature in `packages` folder and need to create redux for that         feature always make new `duck` folder for new feature and create all files of redux                                         (`index.js`,`actions.js`,`selectors.js`,`types.js`,`reducers.js`). Then combine reducer to other reducer in `root-store`      > `reducers.js` file.
        
-
+       ```jsx
+       // All Reducers
+       import newReducer from "../packages/newFeature/duck/reducers"; 
+        
+       const rootReducer = combineReducers({
+          // other reducers
+          newFeature: newReducer
+       }); 
+       
+       export default rootReducer;
+       ``` 
+    
