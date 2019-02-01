@@ -276,7 +276,7 @@
     <Foo hidden />
     ```
     
-  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the            `<img>` must have `role="presentation"`. eslint: (`jsx-a11y/alt-text`)[https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md]
+  - Always include an `alt` prop on `<img>` tags. If the image is presentational, `alt` can be an empty string or the            `<img>` must have `role="presentation"`. eslint: [`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md)
 
      ```jsx
      // bad
@@ -293,7 +293,7 @@
      ```
  
  
-   - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`]         (https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
+   - Do not use words like "image", "photo", or "picture" in `<img>` `alt` props. eslint: [`jsx-a11y/img-redundant-alt`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md)
       > Why? Screenreaders already announce `img` elements as images, so there is no need to include this information in the        alt text.
 
       ```jsx
@@ -305,7 +305,7 @@
       ```
     
   - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
-    > Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-         e0349aece318) because it can negatively impact performance and cause issues with component state.
+    > Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
 
       We don’t recommend using indexes for keys if the order of items may change.
 
@@ -334,12 +334,12 @@
        ```jsx
        // bad
        <Foo
-       ref="myRef"
+        ref="myRef"
        />
 
        // good
        <Foo
-       ref={(ref) => { this.myRef = ref; }}
+        ref={(ref) => { this.myRef = ref; }}
        />
        ```
 
@@ -350,24 +350,24 @@
        ```jsx
        // bad
        render() {
-       return <MyComponent variant="long body" foo="bar">
-               <MyChild />
-             </MyComponent>;
-    }
+        return <MyComponent variant="long body" foo="bar">
+                 <MyChild />
+               </MyComponent>;
+       }
 
        // good
        render() {
-       return (
-        <MyComponent variant="long body" foo="bar">
-          <MyChild />
-        </MyComponent>
-       );
+         return (
+          <MyComponent variant="long body" foo="bar">
+            <MyChild />
+          </MyComponent>
+         );
        }
 
        // good, when single line
        render() {
-       const body = <div>hello</div>;
-       return <MyComponent>{body}</MyComponent>;
+         const body = <div>hello</div>;
+         return <MyComponent>{body}</MyComponent>;
        }
        ```
 
@@ -426,7 +426,7 @@
        }
        ```
 
-  - **Decleare Methods Name**: Always declare methods name that it will represent its work
+  - **Decleare Methods Name**: Always declare method name that can represent its purpose
        ```jsx
        // bad
        login = () => {
@@ -451,12 +451,11 @@
        ```
        
 ## Common
-  - Make all common components (`modals`,`dropdowns`,`drawer`) which can be use in more than one component in `common` >           `components` folder.
+  - Keep all common components (`modals`,`dropdowns`,`drawer`) in `common` > `components` folder (which can be use in more than one component).
   
-  - Place all the images in `common` > `assets` and require image in `images.js` file in variable and which can be used in       any components.
+  - Place all the images in `common` > `assets` and require image in `images.js` file in variable and which can be used in any components.
   
   - Make all helpers functions in `common` > `utils` > `helpers.js` which can be used in more than one component.
-  
   
 ## Create Routing
 
