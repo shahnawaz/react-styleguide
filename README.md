@@ -452,6 +452,7 @@ in our project, although some conventions (i.e async/await, naming files)
        
        openModal = () => {
        }
+       ```
        
 ## Common
   - Make all common components (`modals`,`dropdowns`,`drawer`) which can be use in more than one component in `common` >           `components` folder.
@@ -461,3 +462,37 @@ in our project, although some conventions (i.e async/await, naming files)
   - Make all helpers functions in `common` > `utils` > `helpers.js` which can be used in more than one component.
   
   
+## Create Routing
+
+  - **Making New Route**: When make new feature in `packages` folder always making route for that feature always make new       `Stack`.
+  
+       ```jsx
+       
+       const newStack = createStackNavigator({
+          Page1: {
+              screen: Page1Container,
+              path: '/Page1',
+              navigationOptions: ({ navigation }) => ({
+                ...navigation,
+              })
+           },
+          Page2: {
+              screen: Page2Container,
+              path: '/Page2',
+              navigationOptions: ({ navigation }) => ({
+                 ...navigation,
+              })
+           }
+        }, {
+            headerMode: 'none',
+        });
+       
+       const AppStack = createStackNavigator({
+        // other stacks
+        
+        newFeature: newStack,
+       }, {
+        headerMode: 'none',
+        })
+       
+
