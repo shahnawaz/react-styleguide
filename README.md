@@ -457,9 +457,25 @@
   
   - Make all helpers functions in `common` > `utils` > `helpers.js` which can be used in more than one component.
   
+## Create Packages (featrues)
+
+  - **Making New Featre**: Add all related components in a feature folder inside `packages` folder.
+  
+   ```
+   src
+   |_ packages
+      |_ offers
+      | |_ offers-container.js
+      | |_ offer-form.js
+      | |_ offer-form-validator.js
+      |_ orders
+      | |_ orders-container.js
+      ... 
+   ```
+
 ## Create Routing
 
-  - **Making New Route**: When make new feature in `packages` folder always making route for that feature always make new       `Stack`.Suppose we need to add offers stack.
+  - **Making New Route**: Add routes based on featres. Example: Adding a new `offer` (feature) stack
   
        ```jsx
        
@@ -492,7 +508,9 @@
        ```
 ## Creating Redux
   
-  - **Making new feature in packages**: While making new feature in `packages` folder and need to create redux for that         feature always make new `duck` folder for new feature and create all files of redux                                         (`index.js`,`actions.js`,`selectors.js`,`types.js`,`reducers.js`). Then combine reducer to other reducer in `root-store`      > `reducers.js` file [See this](https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7) and [this](https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be). Suppose we add offers.
+  - **Use duck pattern for Redux**: (`index.js`,`actions.js`,`selectors.js`,`types.js`,`reducers.js`). Then combine reducer to other reducer in `root-store` > `reducers.js` file.
+ To learn more about duck:
+ [Check this](https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7) and [this](https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be).
        
        ```jsx
        // All Reducers
@@ -508,7 +526,7 @@
     
 ## Seperate Form Comoponents
   
-  - Always make seperate form component in all components in which form are used and make all form validation work in form       component and pass the data to parent component parent component is responsible to utilizing the data and form component     is responsilble for get data from user and validate the data and pass data to parent component.
+  - Always make seperate form component.
        
        ```jsx
        import LoginForm from "./login-form";
@@ -519,7 +537,7 @@
         }
 
 
-        onLoginPress = async (data) => {
+        onLoginFormSubmit = async (data) => {
         // login with data
         };
 
@@ -527,11 +545,9 @@
 
         return (
             <div>
-                <div>
-                    <LoginForm
-                        onSubmit={this.onLoginPress}
-                    />
-                </div>
+                <LoginForm
+                    onSubmit={this.onLoginFormSubmit}
+                  />
             </div>
                 )
           }
@@ -540,8 +556,8 @@
   
 ## Form Validators
 
-  - Always make `validators.js` seperate file in feature folder for validation of form don't validate form in component         and make common form validation in `common` > `utils` > `form-validators.js` which can be used in more than one form or     all form like `isValid` we have declare in `SARA` see the code.
-       
+  - Always make separate `validators.js` for each form component (keep the validation logic out of component).
+
        validators.js
        ```jsx
        // import from common > form-validators
